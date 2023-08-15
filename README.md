@@ -1,4 +1,36 @@
-## Устные вопросы
+# L1
+
+## Tasks
+| №  | main                        | library                                               | test                                         |
+|----|-----------------------------|-------------------------------------------------------|----------------------------------------------|
+| 1  | [main](cmd/task_1/main.go ) |                                                       |                                              |
+| 2  | [main](cmd/task_2/main.go ) |                                                       |                                              |
+| 3  | [main](cmd/task_3/main.go ) |                                                       |                                              |
+| 4  | [main](cmd/task_4/main.go ) |                                                       |                                              |
+| 5  | [main](cmd/task_5/main.go ) |                                                       |                                              |
+| 6  | [main](cmd/task_6/main.go ) |                                                       |                                              |
+| 7  | [main](cmd/task_7/main.go ) |                                                       |                                              |
+| 8  | [main](cmd/task_8/main.go ) |                                                       | [test](cmd/task_8/setbit_test.go)            |
+| 9  | [main](cmd/task_9/main.go ) | [internal/pipeline](internal/pipeline/pipeline.go)    |                                              |
+| 10 | [main](cmd/task_10/main.go) |                                                       |                                              |
+| 11 | [main](cmd/task_11/main.go) |                                                       |                                              |
+| 12 | [main](cmd/task_12/main.go) |                                                       |                                              |
+| 13 | [main](cmd/task_13/main.go) |                                                       |                                              |
+| 14 | [main](cmd/task_14/main.go) |                                                       |                                              |
+| 15 | [main](cmd/task_15/main.go) |                                                       |                                              |
+| 16 | [main](cmd/task_16/main.go) | [internal/quicksort](internal/quicksort/quicksort.go) | [test](internal/quicksort/quicksort_test.go) |
+| 17 | [main](cmd/task_17/main.go) | [internal/bisect](internal/bisect/bisect.go)          | [test](internal/bisect/bisect_test.go)       |
+| 18 | [main](cmd/task_18/main.go) |                                                       |                                              |
+| 19 | [main](cmd/task_19/main.go) |                                                       |                                              |
+| 20 | [main](cmd/task_20/main.go) |                                                       |                                              |
+| 21 | [main](cmd/task_21/main.go) |                                                       |                                              |
+| 22 | [main](cmd/task_22/main.go) |                                                       |                                              |
+| 23 | [main](cmd/task_23/main.go) |                                                       |                                              |
+| 24 | [main](cmd/task_24/main.go) |                                                       |                                              |
+| 25 | [main](cmd/task_25/main.go) | [internal/sleep](internal/sleep/sleep.go)             |                                              |
+| 26 | [main](cmd/task_26/main.go) |                                                       |                                              |
+
+## Colloquial questions
 
 ### Какой самый эффективный способ конкатенации строк?
 According to [docs](https://pkg.go.dev/strings#Builder), `strings.Builder` is optimized for for efficient `string` building.
