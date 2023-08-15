@@ -1,7 +1,9 @@
 package main
 
 import (
+	"errors"
 	"strings"
+	"unicode/utf8"
 )
 
 /*
@@ -28,11 +30,9 @@ func createHugeString(length int) string {
 var justString string
 
 func someFunc() {
-	// I guess this is supposed to mean "make a string of length 1<<10"
-	// then this might take a long time to build
-	// also it would take up more memory than needed - we only
-	// use the first 100 symbols!
+	// if 1 << 10 is string length, then 100 would be enough
 	v := createHugeString(1 << 10)
+	// if createHugeString accepts resulting length
 	// this is an unnecessary copy - could just assign it right away
 	justString = v[:100]
 }
@@ -40,6 +40,27 @@ func someFunc() {
 // perhaps, something like this would be a better version
 func correctedFunc() {
 	justString = createHugeString(100)
+}
+
+// correctedWithUnicode checks input length and works with unicode
+func correctedWithUnicode() (string, error) {
+	// if arg is not just resulting length
+	v := createHugeString(1 << 10)
+	// if v contains non-ASCII symbols can't just take a subslice of v
+	input := []byte(v)
+	output := make([]byte, 0, 100*4) // enough for 100 32-bit elements
+	for i := 0; i < 100; i++ {
+		if len(input) == 0 {
+			return "", errors.New("not enough symbols")
+		}
+		// take the first rune
+		r, size := utf8.DecodeRune(input)
+		// append it to the output
+		utf8.AppendRune(output, r)
+		// reslice input to skip the rune
+		input = input[size:]
+	}
+	return string(output), nil
 }
 
 func main() {
