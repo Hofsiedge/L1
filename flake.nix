@@ -35,7 +35,7 @@
         popd
       '';
       preview-readme-md = ''
-        ${pkgs.python311Packages.grip}/bin/grip --browser --quiet
+        ${pkgs.python311Packages.grip}/bin/grip --browser --quiet --norefresh
       '';
     });
     back = (with pkgs; [go_1_20 gopls delve go-tools gotools]) ++ [gofumpt];
