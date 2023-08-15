@@ -113,7 +113,7 @@ func EffectConsumer[T any](effect func(T)) Consumer[T, struct{}] {
 // returns result.
 //
 // neutralElement is the first value of the first argument to reduce.
-// then the result of previous invokation is used as first argument.
+// then the result of previous invocation is used as first argument.
 //
 // examples of usage: sum of inputs; unique string set constructor; etc
 func ReduceConsumer[I, O any](reduce func(O, I) O, neutralElement O) Consumer[I, O] {
